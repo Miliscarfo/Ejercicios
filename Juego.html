@@ -1,23 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Juego de adivinanza</title>
+  <meta charset="UTF-8">
+  <title>🎯 Juego de adivinanza</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      background-color: #ff7b00;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff7b00, #ffb347);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #resultado {
+      margin-top: 25px;
+      background: white;
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      font-size: 18px;
+      text-align: center;
+      animation: aparecer 0.4s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-<h2>Juego de adivinanza</h2>
-<button onclick="jugar()">Jugar</button>
+  <h2>🎯 Juego de adivinanza</h2>
+  <button onclick="jugar()">Jugar</button>
 
-<script>
-function jugar() {
-    const numeroSecreto = 7;
-    let intento = prompt("Adivina el número secreto (1-10):");
-    if (Number(intento) === numeroSecreto) {
-        alert("¡Acertaste!");
-    } else {
-        alert("No acertaste. El número era " + numeroSecreto);
+  <div id="resultado"></div>
+
+  <script>
+    function jugar() {
+      const numeroSecreto = Math.floor(Math.random() * 10) + 1; // número aleatorio 1-10
+      const intento = prompt("Adivina el número secreto (1-10):");
+
+      const resultado = document.getElementById("resultado");
+
+      if (Number(intento) === numeroSecreto) {
+        resultado.textContent = "🎉 ¡Acertaste! El número era " + numeroSecreto + ".";
+        resultado.style.color = "green";
+      } else if (intento === null || intento === "") {
+        resultado.textContent = "❌ No ingresaste ningún número.";
+        resultado.style.color = "gray";
+      } else {
+        resultado.textContent = "😢 No acertaste. El número era " + numeroSecreto + ".";
+        resultado.style.color = "red";
+      }
     }
-}
-</script>
+  </script>
 </body>
 </html>

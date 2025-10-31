@@ -1,28 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Contador que disminuye</title>
+  <meta charset="UTF-8">
+  <title>Contador que disminuye</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #222;
+    }
+
+    h2 {
+      background-color: #4a4e69;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      margin-bottom: 25px;
+    }
+
+    #contador {
+      font-size: 70px;
+      font-weight: bold;
+      color: #222;
+      background: white;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 25px;
+      transition: transform 0.2s;
+    }
+
+    #contador:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      background: linear-gradient(135deg, #3a0ca3, #7209b7);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+
+    #mensaje {
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #4a4e69;
+    }
+  </style>
 </head>
 <body>
-<h2>Contador que disminuye</h2>
-<p id="contador">10</p>
-<button id="btnDisminuir" onclick="disminuir()">Disminuir</button>
-<p id="mensaje"></p>
+  <h2>⏳ Contador que disminuye ⏰</h2>
+  <p id="contador">10</p>
+  <button id="btnDisminuir" onclick="disminuir()">Disminuir</button>
+  <p id="mensaje"></p>
 
-<script>
-let contador = 10;
+  <script>
+    let contador = 10;
 
-function disminuir() {
-    if (contador > 0) {
+    function disminuir() {
+      if (contador > 0) {
         contador--;
         document.getElementById("contador").textContent = contador;
+
         if (contador === 0) {
-            document.getElementById("mensaje").textContent = "¡El contador llegó a 0! No puedes continuar.";
-            document.getElementById("btnDisminuir").disabled = true;
+          document.getElementById("mensaje").textContent = "¡El contador llegó a 0! 🚫 No puedes continuar.";
+          document.getElementById("btnDisminuir").disabled = true;
         }
+      }
     }
-}
-</script>
+  </script>
 </body>
 </html>

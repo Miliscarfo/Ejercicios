@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Calcular promedio</title>
+    <meta charset="UTF-8">
+    <title>Calcular Promedio</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        h2 {
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #00cec9;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #009b8c;
+            transform: scale(1.05);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #dcdcdc;
+        }
+    </style>
 </head>
+
 <body>
-<h2>Calcular promedio</h2>
-<button onclick="calcularPromedio()">Calcular promedio</button>
+    <h2>Calcular Promedio</h2>
+    <button onclick="calcularPromedio()">Calcular promedio</button>
 
-<script>
-function calcularPromedio() {
-    let n1 = Number(prompt("Ingrese la primera nota:"));
-    let n2 = Number(prompt("Ingrese la segunda nota:"));
-    let n3 = Number(prompt("Ingrese la tercera nota:"));
+    <footer>© 2025 - PromedioApp</footer>
 
-    let promedio = (n1 + n2 + n3) / 3;
+    <script>
+        function calcularPromedio() {
+            // Solicitar notas al usuario
+            let n1 = Number(prompt("Ingrese la primera nota:"));
+            let n2 = Number(prompt("Ingrese la segunda nota:"));
+            let n3 = Number(prompt("Ingrese la tercera nota:"));
 
-    if (promedio >= 6) {
-        alert("Aprobado. Promedio: " + promedio.toFixed(2));
-    } else {
-        alert("Desaprobado. Promedio: " + promedio.toFixed(2));
-    }
-}
-</script>
+            // Calcular el promedio
+            let promedio = (n1 + n2 + n3) / 3;
+
+            // Mostrar resultado
+            if (promedio >= 6) {
+                alert("✅ Aprobado. Promedio: " + promedio.toFixed(2));
+            } else {
+                alert("❌ Desaprobado. Promedio: " + promedio.toFixed(2));
+            }
+        }
+    </script>
 </body>
 </html>
