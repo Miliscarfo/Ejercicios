@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Datos del estudiante</title>
+</head>
+<body>
+<h2>Registro de estudiante</h2>
+<button onclick="capturarDatos()">Registrar</button>
+
+<script>
+function capturarDatos() {
+    let nombre = prompt("Ingrese su nombre:");
+    let apellido = prompt("Ingrese su apellido:");
+    let curso = prompt("Ingrese su curso:");
+
+    document.write("<h1>Bienvenido " + nombre + " " + apellido + "</h1>");
+    document.write("<p>Curso: " + curso + "</p>");
+}
+</script>
+</body>
+</html>

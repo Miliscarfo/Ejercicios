@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Asistencia a la fiesta</title>
+</head>
+<body>
+<h2>Asistencia a la fiesta</h2>
+<button onclick="registrarAsistencia()">Registrar asistencia</button>
+
+<script>
+function registrarAsistencia() {
+    let nombre = prompt("Ingrese su nombre:");
+    let asistira = confirm("¿Asistirá a la fiesta de fin de año?");
+    if (asistira) {
+        alert(nombre + " asistirá a la fiesta 🎉");
+    } else {
+        alert(nombre + " no asistirá a la fiesta 😢");
+    }
+}
+</script>
+</body>
+</html>

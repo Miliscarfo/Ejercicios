@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Promedio y aprobación</title>
+</head>
+<body>
+<h2>Verificar si aprueba</h2>
+<button onclick="verificarAprobacion()">Verificar</button>
+
+<script>
+function verificarAprobacion() {
+    let n1 = Number(prompt("Ingrese la primera nota:"));
+    let n2 = Number(prompt("Ingrese la segunda nota:"));
+    let n3 = Number(prompt("Ingrese la tercera nota:"));
+
+    let promedio = (n1 + n2 + n3) / 3;
+
+    if (promedio >= 6) {
+        alert("Aprobado con promedio: " + promedio.toFixed(2));
+    } else {
+        alert("Desaprobado con promedio: " + promedio.toFixed(2));
+    }
+}
+</script>
+</body>
+</html>
