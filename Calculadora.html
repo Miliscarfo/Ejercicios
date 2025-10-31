@@ -4,89 +4,112 @@
   <meta charset="UTF-8">
   <title>Calculadora de IMC</title>
   <style>
+    /* Fondo general */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #a0c4ff, #bdb2ff);
-      color: #333;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
       margin: 0;
     }
 
+    /* Contenedor principal */
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 350px;
+      width: 90%;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
     h2 {
-      background-color: #3a0ca3;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      color: #333;
+      margin-bottom: 20px;
     }
 
     label {
       font-weight: 600;
+      display: block;
+      margin-top: 10px;
+      color: #555;
     }
 
     input {
-      margin: 8px 0;
-      padding: 8px;
-      width: 150px;
-      border: 2px solid #3a0ca3;
-      border-radius: 5px;
-      font-size: 15px;
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
       outline: none;
-      transition: 0.3s;
+      margin-top: 5px;
+      font-size: 15px;
+      transition: border 0.3s;
     }
 
     input:focus {
-      border-color: #7209b7;
-      box-shadow: 0 0 5px #7209b7;
+      border-color: #4facfe;
     }
 
     button {
-      background-color: #3a0ca3;
-      color: white;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
       border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
+      color: white;
+      padding: 12px 20px;
       font-size: 16px;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
     }
 
     button:hover {
-      background-color: #7209b7;
       transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
     #resultado {
       margin-top: 20px;
       font-size: 18px;
-      background-color: white;
-      padding: 15px 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      color: #333;
     }
 
     strong {
-      color: #3a0ca3;
+      color: #2b7a78;
+    }
+
+    /* Animación */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
-  <h2>Calculadora de IMC</h2>
+  <div class="container">
+    <h2>💪 Calculadora de IMC</h2>
 
-  <label>Peso (kg):</label><br>
-  <input type="number" id="peso" step="0.1"><br><br>
+    <label>Peso (kg):</label>
+    <input type="number" id="peso" step="0.1">
 
-  <label>Altura (m):</label><br>
-  <input type="number" id="altura" step="0.01"><br><br>
+    <label>Altura (m):</label>
+    <input type="number" id="altura" step="0.01">
 
-  <button onclick="calcularIMC()">Calcular IMC</button>
+    <button onclick="calcularIMC()">Calcular IMC</button>
 
-  <p id="resultado"></p>
+    <p id="resultado"></p>
+  </div>
 
   <script>
     function calcularIMC() {
@@ -94,7 +117,7 @@
       const altura = parseFloat(document.getElementById("altura").value);
 
       if (!peso || !altura || altura <= 0) {
-        document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+        document.getElementById("resultado").textContent = "⚠️ Por favor, ingrese valores válidos.";
         return;
       }
 
